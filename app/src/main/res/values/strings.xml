@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">LedGlass</string>
+    <string name="action_settings">Add glass</string>
+</resources>
