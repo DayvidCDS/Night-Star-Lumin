@@ -5,17 +5,22 @@ import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothSocket;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.telephony.TelephonyManager;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.io.IOException;
@@ -24,6 +29,8 @@ import java.util.UUID;
 import petrov.kristiyan.colorpicker.ColorPicker;
 
 public class MainActivity extends AppCompatActivity {
+    String textCaixaText = null;
+    private AlertDialog alerta;
     private static final int REQUEST_ENABLE_BT = 1;
     private static final int SOLICITA_CONEXAO = 2;
     boolean conexao = false;
@@ -70,8 +77,26 @@ public class MainActivity extends AppCompatActivity {
         imageButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getApplicationContext(), "Abre a set text", Toast.LENGTH_SHORT).show();
+
+                LayoutInflater li = getLayoutInflater();
+                final View view = li.inflate(R.layout.set_text, null);
+                view.findViewById(R.id.bt).setOnClickListener(new View.OnClickListener() {
+                    public void onClick(View arg0) {
+                        TextView text = (TextView) view.findViewById(R.id.editText);
+                        textCaixaText = text.getText().toString();
+                        Toast.makeText(MainActivity.this, textCaixaText, Toast.LENGTH_SHORT).show();
+                        alerta.dismiss();
+                    }
+                });
+
+                AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+                builder.setTitle("Escreva algo");
+                builder.setView(view);
+                alerta = builder.create();
+                alerta.show();
+
             }
+                //Toast.makeText(getApplicationContext(), "Abre a set text", Toast.LENGTH_SHORT).show();
         });
 
         imageButton1.setOnClickListener(new View.OnClickListener() {

@@ -13,7 +13,7 @@ import android.widget.TextView;
 import java.util.Set;
 
 /**
- * Created by dayvi on 02/03/2017.
+ * 02/03/2017.
  */
 
 public class ListaDispositivos extends ListActivity {
