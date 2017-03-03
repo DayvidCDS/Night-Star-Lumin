@@ -4,22 +4,20 @@ import android.app.Activity;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothSocket;
-import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.telephony.TelephonyManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -29,8 +27,10 @@ import java.util.UUID;
 import petrov.kristiyan.colorpicker.ColorPicker;
 
 public class MainActivity extends AppCompatActivity {
-    String textCaixaText = null;
+    String textCaixaText = "Esse texto vai ser mostrado no óculos";
+    int efeitoTexto = 1;
     private AlertDialog alerta;
+    private int velocidade = 50, brilho = 75;
     private static final int REQUEST_ENABLE_BT = 1;
     private static final int SOLICITA_CONEXAO = 2;
     boolean conexao = false;
@@ -39,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
     BluetoothAdapter mBluetoothAdapter = null;
     BluetoothSocket mSocket = null;
     private static final UUID mUUID = UUID.fromString("28c36230-ff62-11e6-9598-0800200c9a66"); //foda
+    int cor = Color.GRAY;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,7 +70,17 @@ public class MainActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "verificar se está conectado, se sim -> enviar", Snackbar.LENGTH_LONG)
+                String msg = null;
+                if (!mBluetoothAdapter.isEnabled()) {
+                    msg = "Bluetooht não ativado!";
+                }
+                else if (conexao) {
+                    msg = "Enviando!";
+                }
+                else {
+                    msg = "Falha ao enviar!";
+                }
+                Snackbar.make(view, msg, Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
             }
         });
@@ -80,23 +91,74 @@ public class MainActivity extends AppCompatActivity {
 
                 LayoutInflater li = getLayoutInflater();
                 final View view = li.inflate(R.layout.set_text, null);
+                final TextView text = (TextView) view.findViewById(R.id.editText);
+
+                text.setHint(textCaixaText);
+
+                view.findViewById(R.id.img1).setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        //Toast.makeText(getApplicationContext(), "imagem 1", Toast.LENGTH_SHORT).show();
+                        efeitoTexto = 1;
+                    }
+                });
+
+                view.findViewById(R.id.img2).setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        //Toast.makeText(getApplicationContext(), "imagem 1", Toast.LENGTH_SHORT).show();
+                        efeitoTexto = 2;
+                    }
+                });
+
+                view.findViewById(R.id.img3).setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        //Toast.makeText(getApplicationContext(), "imagem 1", Toast.LENGTH_SHORT).show();
+                        efeitoTexto = 3;
+                    }
+                });
+
                 view.findViewById(R.id.bt).setOnClickListener(new View.OnClickListener() {
                     public void onClick(View arg0) {
-                        TextView text = (TextView) view.findViewById(R.id.editText);
-                        textCaixaText = text.getText().toString();
-                        Toast.makeText(MainActivity.this, textCaixaText, Toast.LENGTH_SHORT).show();
+
+                        textCaixaText = (!text.getText().toString().equals("")) ? text.getText().toString() : textCaixaText;
                         alerta.dismiss();
+
+                        LayoutInflater li2 = getLayoutInflater();
+                        final View view2 = li2.inflate(R.layout.velocidade_brilho_telinha, null);
+                        final SeekBar seekBrilho = (SeekBar) view2.findViewById(R.id.seekBar1);
+                        final SeekBar seekVelocidade = (SeekBar) view2.findViewById(R.id.seekBar);
+
+                        seekBrilho.setProgress(brilho);
+                        seekVelocidade.setProgress(velocidade);
+
+                        view2.findViewById(R.id.bt).setOnClickListener(new View.OnClickListener() {
+                            public void onClick(View arg0) {
+                                velocidade = seekVelocidade.getProgress();
+                                brilho = seekBrilho.getProgress();
+                                alerta.dismiss();
+                                Toast.makeText(MainActivity.this, textCaixaText + "\n" + "Efeito " + Integer.toString(efeitoTexto), Toast.LENGTH_SHORT).show();
+                            }
+                        });
+
+
+                        AlertDialog.Builder builder2 = new AlertDialog.Builder(MainActivity.this);
+                        //builder.setTitle("Escreva algo");
+                        builder2.setView(view2);
+                        alerta = builder2.create();
+                        alerta.show();
+
                     }
                 });
 
                 AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
-                builder.setTitle("Escreva algo");
+                //builder.setTitle("Escreva algo");
                 builder.setView(view);
                 alerta = builder.create();
                 alerta.show();
 
             }
-                //Toast.makeText(getApplicationContext(), "Abre a set text", Toast.LENGTH_SHORT).show();
         });
 
         imageButton1.setOnClickListener(new View.OnClickListener() {
@@ -109,6 +171,7 @@ public class MainActivity extends AppCompatActivity {
                     public void setOnFastChooseColorListener(int position, int color) {
                         Toast.makeText(getApplicationContext(), Integer.toHexString(color), Toast.LENGTH_SHORT).show();
                         toolbar.setBackgroundColor(color);
+                        cor = color;
                     }
 
                     @Override
@@ -122,7 +185,57 @@ public class MainActivity extends AppCompatActivity {
         imageButton2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getApplicationContext(), "Abre a tela effects", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getApplicationContext(), "Abre a tela effects", Toast.LENGTH_SHORT).show();
+
+                LayoutInflater li3 = getLayoutInflater();
+                final View view3 = li3.inflate(R.layout.effects, null);
+
+                view3.findViewById(R.id.img1).setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Toast.makeText(getApplicationContext(), "imagem 1", Toast.LENGTH_SHORT).show();
+                        alerta.dismiss();
+                    }
+                });
+
+                view3.findViewById(R.id.img2).setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Toast.makeText(getApplicationContext(), "imagem 2", Toast.LENGTH_SHORT).show();
+                        alerta.dismiss();
+                    }
+                });
+
+                view3.findViewById(R.id.img3).setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Toast.makeText(getApplicationContext(), "imagem 3", Toast.LENGTH_SHORT).show();
+                        alerta.dismiss();
+                    }
+                });
+
+                view3.findViewById(R.id.img4).setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Toast.makeText(getApplicationContext(), "imagem 4", Toast.LENGTH_SHORT).show();
+                        alerta.dismiss();
+                    }
+                });
+
+                view3.findViewById(R.id.img5).setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Toast.makeText(getApplicationContext(), "imagem 5", Toast.LENGTH_SHORT).show();
+                        alerta.dismiss();
+                    }
+                });
+
+                AlertDialog.Builder builder3 = new AlertDialog.Builder(MainActivity.this);
+                //builder.setTitle("Escreva algo");
+                builder3.setView(view3);
+                alerta = builder3.create();
+                alerta.show();
+
             }
         });
 
@@ -143,10 +256,11 @@ public class MainActivity extends AppCompatActivity {
                 if (resultCode == Activity.RESULT_OK) {
                     Toast.makeText(getApplicationContext(), "Bluetooth ativado", Toast.LENGTH_SHORT).show();
                 }
-                else {
-                Toast.makeText(getApplicationContext(), "Bluetooth não ativado, o app será encerrado", Toast.LENGTH_SHORT).show();
-                    finish();
-            } break;
+                //else {
+                //Toast.makeText(getApplicationContext(), "Bluetooth não ativado, o app será encerrado", Toast.LENGTH_SHORT).show();
+                   // finish();
+            //}
+                break;
 
             case SOLICITA_CONEXAO:
                 if (resultCode == Activity.RESULT_OK) { // putaria da conexão bluetooth
@@ -167,25 +281,20 @@ public class MainActivity extends AppCompatActivity {
                 else {
                     Toast.makeText(getApplicationContext(), "Falha ao obter o MAC", Toast.LENGTH_SHORT).show();
                 }
-
+            break;
         }
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
             if (conexao) {
                 try {

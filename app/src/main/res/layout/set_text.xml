@@ -1,20 +1,70 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
-    android:layout_width="fill_parent"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_height="fill_parent"
-    >
-
-    <EditText
-        android:layout_width="match_parent"
+    android:layout_width="fill_parent">
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:ems="10"
-        android:id="@+id/editText" />
+        >
 
-    <Button
-        android:id="@+id/bt"
-        android:layout_width="300px"
-        android:layout_height="wrap_content"
-        android:text="Ok" />
+        <ImageButton
+            android:layout_width="fill_parent"
+            android:layout_height="100dp"
+            android:src="@color/color3"
+            android:id="@+id/img1"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="10dp"
+            />
 
-</LinearLayout>
+        <ImageButton
+            android:layout_width="fill_parent"
+            android:layout_height="100dp"
+            android:src="@color/color7"
+            android:id="@+id/img2"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            />
+
+        <ImageButton
+            android:layout_width="fill_parent"
+            android:layout_height="100dp"
+            android:src="@color/color10"
+            android:id="@+id/img3"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#515151"
+            android:elegantTextHeight="true"
+            android:text="Escreva algo:"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:textSize="20sp" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:ems="10"
+            android:id="@+id/editText"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="10dp"
+            android:hint="Esse texto vai ser mostrado no óculos"
+            android:textSize="16sp" />
+
+        <Button
+            android:id="@+id/bt"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginBottom="10dp"
+            android:text="Ok"
+            />
+
+    </LinearLayout>
+</ScrollView>

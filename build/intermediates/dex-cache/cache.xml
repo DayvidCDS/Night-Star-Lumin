@@ -16,17 +16,8 @@
         jumboMode="true"
         optimize="true"
         revision="25.0.1"
-        sha1="28492c66a03cb3c3bd42af6c51100858f36a608c">
+        sha1="32a5244ff8e3903a3ea1cac0e110b2a3ef67e4d6">
         <dex dex="C:\Users\dayvi\AndroidStudioProjects\Night-Star-Lumin\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run_d5390f3e11e6ae766520459c242a94a5d5e6c160\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\dayvi\AndroidStudioProjects\Night-Star-Lumin\app\build\intermediates\exploded-aar\com.android.support\support-core-utils\24.2.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.1"
-        sha1="9c4c3bc902450c39ed54de170db4fb12aea20a35">
-        <dex dex="C:\Users\dayvi\AndroidStudioProjects\Night-Star-Lumin\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-core-utils-24.2.1_4310fb79437c638fb374065f35a8c56c7cd52466\classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -36,6 +27,78 @@
         revision="25.0.1"
         sha1="43b2dba6b5a0b14527961b75329d0b90025f15ea">
         <dex dex="C:\Users\dayvi\AndroidStudioProjects\Night-Star-Lumin\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-appcompat-v7-24.2.1_3efd9919f4f4dde36ee0d58b9c8c07cb81adbc52\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\dayvi\AndroidStudioProjects\Night-Star-Lumin\app\build\intermediates\exploded-aar\com.android.support\support-fragment\24.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.1"
+        sha1="b9a1ac78ad7ef3abedc4a4b30cd92bcacb939d1f">
+        <dex dex="C:\Users\dayvi\AndroidStudioProjects\Night-Star-Lumin\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-fragment-24.2.1_005a1f0d83e717b4c54ef3016d7da869a3aa0bc9\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\dayvi\AndroidStudioProjects\Night-Star-Lumin\app\build\intermediates\exploded-aar\com.android.support\support-media-compat\24.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.1"
+        sha1="09b462bbcb77650284bd6614f1a32f360ef369f8">
+        <dex dex="C:\Users\dayvi\AndroidStudioProjects\Night-Star-Lumin\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-media-compat-24.2.1_87c3ef66ae2a8c2699e150a1d95d209b80105bbd\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\dayvi\AndroidStudioProjects\Night-Star-Lumin\app\build\intermediates\exploded-aar\com.android.support\support-core-utils\24.2.1\jars\libs\internal_impl-24.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.1"
+        sha1="935a969265b2a166b2d20415423f5f6e90fe16e0">
+        <dex dex="C:\Users\dayvi\AndroidStudioProjects\Night-Star-Lumin\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.2.1_ce369da6eff3a08ceb272f9a2009a84bb13e5aaa\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\dayvi\AndroidStudioProjects\Night-Star-Lumin\app\build\intermediates\exploded-aar\com.android.support\support-core-ui\24.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.1"
+        sha1="e7f3132168957eefc46229fc32c3bd464642b71e">
+        <dex dex="C:\Users\dayvi\AndroidStudioProjects\Night-Star-Lumin\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-core-ui-24.2.1_6231720f44ed2b3be46295ea0917b09ef8a8f316\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\dayvi\AndroidStudioProjects\Night-Star-Lumin\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.1"
+        sha1="71a824fa83599f848932206482fd0f7b1494e587">
+        <dex dex="C:\Users\dayvi\AndroidStudioProjects\Night-Star-Lumin\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_99587a8e1f1eb1278f7091975a1e36e123fb963a\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\dayvi\AndroidStudioProjects\Night-Star-Lumin\app\build\intermediates\exploded-aar\com.android.support\support-v4\24.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.1"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="C:\Users\dayvi\AndroidStudioProjects\Night-Star-Lumin\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-v4-24.2.1_83010f2f6c1c552dbd554bf0b806e2e09a02e991\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\dayvi\AndroidStudioProjects\Night-Star-Lumin\app\build\intermediates\exploded-aar\com.android.support\design\24.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.1"
+        sha1="e03f47f3d1017a093bb3239d4ec47c3447f40744">
+        <dex dex="C:\Users\dayvi\AndroidStudioProjects\Night-Star-Lumin\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-design-24.2.1_fe745d6d32698d10e52e8c982628cd2b6aa87d6a\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\dayvi\AndroidStudioProjects\Night-Star-Lumin\app\build\intermediates\exploded-aar\com.android.support\support-core-utils\24.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.1"
+        sha1="9c4c3bc902450c39ed54de170db4fb12aea20a35">
+        <dex dex="C:\Users\dayvi\AndroidStudioProjects\Night-Star-Lumin\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-core-utils-24.2.1_4310fb79437c638fb374065f35a8c56c7cd52466\classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -75,66 +138,12 @@
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\dayvi\AndroidStudioProjects\Night-Star-Lumin\app\build\intermediates\exploded-aar\com.android.support\support-fragment\24.2.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.1"
-        sha1="b9a1ac78ad7ef3abedc4a4b30cd92bcacb939d1f">
-        <dex dex="C:\Users\dayvi\AndroidStudioProjects\Night-Star-Lumin\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-fragment-24.2.1_005a1f0d83e717b4c54ef3016d7da869a3aa0bc9\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\dayvi\AndroidStudioProjects\Night-Star-Lumin\app\build\intermediates\exploded-aar\com.android.support\support-media-compat\24.2.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.1"
-        sha1="09b462bbcb77650284bd6614f1a32f360ef369f8">
-        <dex dex="C:\Users\dayvi\AndroidStudioProjects\Night-Star-Lumin\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-media-compat-24.2.1_87c3ef66ae2a8c2699e150a1d95d209b80105bbd\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\dayvi\AndroidStudioProjects\Night-Star-Lumin\app\build\intermediates\exploded-aar\com.android.support\support-core-utils\24.2.1\jars\libs\internal_impl-24.2.1.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.1"
-        sha1="935a969265b2a166b2d20415423f5f6e90fe16e0">
-        <dex dex="C:\Users\dayvi\AndroidStudioProjects\Night-Star-Lumin\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.2.1_ce369da6eff3a08ceb272f9a2009a84bb13e5aaa\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
         jar="C:\Users\dayvi\AndroidStudioProjects\Night-Star-Lumin\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\24.2.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.1"
         sha1="d5c731fc64c03dfe04d51134955b483551c35849">
         <dex dex="C:\Users\dayvi\AndroidStudioProjects\Night-Star-Lumin\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-vector-drawable-24.2.1_272c852baeff69e77ea0233892de8ea248758b7b\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\dayvi\AndroidStudioProjects\Night-Star-Lumin\app\build\intermediates\exploded-aar\com.android.support\support-core-ui\24.2.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.1"
-        sha1="e7f3132168957eefc46229fc32c3bd464642b71e">
-        <dex dex="C:\Users\dayvi\AndroidStudioProjects\Night-Star-Lumin\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-core-ui-24.2.1_6231720f44ed2b3be46295ea0917b09ef8a8f316\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\dayvi\AndroidStudioProjects\Night-Star-Lumin\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.1"
-        sha1="536f5ca78982f22565253ce7e7cf4223bef178e8">
-        <dex dex="C:\Users\dayvi\AndroidStudioProjects\Night-Star-Lumin\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_99587a8e1f1eb1278f7091975a1e36e123fb963a\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\dayvi\AndroidStudioProjects\Night-Star-Lumin\app\build\intermediates\exploded-aar\com.android.support\support-v4\24.2.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.1"
-        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
-        <dex dex="C:\Users\dayvi\AndroidStudioProjects\Night-Star-Lumin\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-v4-24.2.1_83010f2f6c1c552dbd554bf0b806e2e09a02e991\classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -162,15 +171,6 @@
         revision="25.0.1"
         sha1="7e4389bd133359a2ff88623ff1e4ff93d6e6f780">
         <dex dex="C:\Users\dayvi\AndroidStudioProjects\Night-Star-Lumin\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.2.1_daee1526197ab0c8385fde42c48742407362b05a\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\dayvi\AndroidStudioProjects\Night-Star-Lumin\app\build\intermediates\exploded-aar\com.android.support\design\24.2.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.1"
-        sha1="e03f47f3d1017a093bb3239d4ec47c3447f40744">
-        <dex dex="C:\Users\dayvi\AndroidStudioProjects\Night-Star-Lumin\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-design-24.2.1_fe745d6d32698d10e52e8c982628cd2b6aa87d6a\classes.dex" />
     </item>
     <item
         is-multidex="true"
