@@ -5,6 +5,7 @@ import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothSocket;
 import android.content.Intent;
+import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -18,13 +19,13 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ImageButton;
 import android.widget.SeekBar;
+import android.widget.TabHost;
 import android.widget.TextView;
 import android.widget.Toast;
-
+import com.larswerkman.holocolorpicker.ColorPicker;
+import com.larswerkman.holocolorpicker.SaturationBar;
 import java.io.IOException;
 import java.util.UUID;
-
-import petrov.kristiyan.colorpicker.ColorPicker;
 
 public class MainActivity extends AppCompatActivity {
     String textCaixaText = "Esse texto vai ser mostrado no óculos";
@@ -51,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
         ImageButton imageButton1 = (ImageButton) findViewById(R.id.imageButton2); //button set color
         ImageButton imageButton2 = (ImageButton) findViewById(R.id.imageButton3); //button effects
         ImageButton imageButton3 = (ImageButton) findViewById(R.id.imageButton4); //button equalizer
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        final FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
 
         mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter(); //ativando adaptador Bluetooth
 
@@ -72,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 String msg = null;
                 if (!mBluetoothAdapter.isEnabled()) {
-                    msg = "Bluetooht não ativado!";
+                    msg = "Bluetooth não ativado!";
                 }
                 else if (conexao) {
                     msg = "Enviando!";
@@ -121,34 +122,8 @@ public class MainActivity extends AppCompatActivity {
 
                 view.findViewById(R.id.bt).setOnClickListener(new View.OnClickListener() {
                     public void onClick(View arg0) {
-
-                        textCaixaText = (!text.getText().toString().equals("")) ? text.getText().toString() : textCaixaText;
                         alerta.dismiss();
-
-                        LayoutInflater li2 = getLayoutInflater();
-                        final View view2 = li2.inflate(R.layout.velocidade_brilho_telinha, null);
-                        final SeekBar seekBrilho = (SeekBar) view2.findViewById(R.id.seekBar1);
-                        final SeekBar seekVelocidade = (SeekBar) view2.findViewById(R.id.seekBar);
-
-                        seekBrilho.setProgress(brilho);
-                        seekVelocidade.setProgress(velocidade);
-
-                        view2.findViewById(R.id.bt).setOnClickListener(new View.OnClickListener() {
-                            public void onClick(View arg0) {
-                                velocidade = seekVelocidade.getProgress();
-                                brilho = seekBrilho.getProgress();
-                                alerta.dismiss();
-                                Toast.makeText(MainActivity.this, textCaixaText + "\n" + "Efeito " + Integer.toString(efeitoTexto), Toast.LENGTH_SHORT).show();
-                            }
-                        });
-
-
-                        AlertDialog.Builder builder2 = new AlertDialog.Builder(MainActivity.this);
-                        //builder.setTitle("Escreva algo");
-                        builder2.setView(view2);
-                        alerta = builder2.create();
-                        alerta.show();
-
+                        setColorPicker(toolbar, fab);
                     }
                 });
 
@@ -164,21 +139,7 @@ public class MainActivity extends AppCompatActivity {
         imageButton1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                final ColorPicker colorPicker = new ColorPicker(MainActivity.this);
-                colorPicker.setTitle("Selecione a cor");
-                colorPicker.setOnFastChooseColorListener(new ColorPicker.OnFastChooseColorListener() {
-                    @Override
-                    public void setOnFastChooseColorListener(int position, int color) {
-                        Toast.makeText(getApplicationContext(), Integer.toHexString(color), Toast.LENGTH_SHORT).show();
-                        toolbar.setBackgroundColor(color);
-                        cor = color;
-                    }
-
-                    @Override
-                    public void onCancel(){
-                        // put code
-                    }
-                }).show();
+                setColorPicker(toolbar, fab);
             }
         });
 
@@ -195,6 +156,7 @@ public class MainActivity extends AppCompatActivity {
                     public void onClick(View v) {
                         Toast.makeText(getApplicationContext(), "imagem 1", Toast.LENGTH_SHORT).show();
                         alerta.dismiss();
+                        setColorPicker(toolbar, fab);
                     }
                 });
 
@@ -283,6 +245,7 @@ public class MainActivity extends AppCompatActivity {
                 }
             break;
         }
+
     }
 
     @Override
@@ -312,7 +275,47 @@ public class MainActivity extends AppCompatActivity {
             return true;
         }
 
+        if (id == R.id.preferences_settings) {
+            //preferencias
+        }
+
         return super.onOptionsItemSelected(item);
+    }
+
+    public void setColorPicker(final Toolbar toolbar, final FloatingActionButton fab) {
+
+        LayoutInflater li = getLayoutInflater();
+        final View view2 = li.inflate(R.layout.velocidade_brilho_telinha, null);
+        final SeekBar seekBrilho = (SeekBar) view2.findViewById(R.id.seekBar1);
+        final SeekBar seekVelocidade = (SeekBar) view2.findViewById(R.id.seekBar);
+        final ColorPicker corSelecionada = (ColorPicker) view2.findViewById(R.id.picker);
+        final SaturationBar saturationBar = (SaturationBar) view2.findViewById(R.id.saturationbar);
+
+        corSelecionada.addSaturationBar(saturationBar);
+
+        corSelecionada.setOldCenterColor(cor);
+        corSelecionada.setColor(cor);
+
+        seekBrilho.setProgress(brilho);
+        seekVelocidade.setProgress(velocidade);
+
+        view2.findViewById(R.id.bt).setOnClickListener(new View.OnClickListener() {
+            public void onClick(View arg0) {
+                velocidade = seekVelocidade.getProgress();
+                brilho = seekBrilho.getProgress();
+                cor = corSelecionada.getColor();
+                //toolbar.setBackgroundColor(cor);
+                fab.setBackgroundTintList(ColorStateList.valueOf(cor));
+                alerta.dismiss();
+            }
+        });
+
+        AlertDialog.Builder builder2 = new AlertDialog.Builder(MainActivity.this);
+        //builder.setTitle("Escreva algo");
+        builder2.setView(view2);
+        alerta = builder2.create();
+        alerta.show();
+
     }
 
 }
