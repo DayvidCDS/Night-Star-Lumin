@@ -59,8 +59,8 @@
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:layout_weight="0.00"
-            android:progress="50"
-            android:max="100"
+            android:progress="4"
+            android:max="9"
             android:layout_marginBottom="15dp"
             android:layout_height="wrap_content" />
 
@@ -81,8 +81,8 @@
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:layout_weight="0.00"
-            android:progress="50"
-            android:max="100"
+            android:progress="4"
+            android:max="9"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"/>
 

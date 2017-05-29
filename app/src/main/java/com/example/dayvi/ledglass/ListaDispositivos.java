@@ -53,6 +53,7 @@ public class ListaDispositivos extends ListActivity {
         Intent returnMac = new Intent();
         returnMac.putExtra(ENDERECO_MAC, enderecoMac);
         setResult(RESULT_OK, returnMac);
+
         finish();
 
     }
