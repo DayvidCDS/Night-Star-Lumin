@@ -42,8 +42,8 @@ public class MainActivity extends AppCompatActivity {
     BluetoothSocket mSocket = null;
     private static final UUID mUUID = UUID.fromString("000001101-0000-1000-8000-00805F9B34FB"); //foda
     int cor = Color.GRAY;
-    String efeitoSelecionado;
-    String colorr;
+    String efeitoSelecionado = null;
+    String colorr = null;
 
     ConnectedThread connectedThread = null;
 
@@ -81,7 +81,7 @@ public class MainActivity extends AppCompatActivity {
                     msg = "Bluetooth não ativado!";
                 }
                 else if (conexao) {
-                    String envio =  "v" + velocidade + "b" + brilho + "e" + efeitoTexto + "m" + textCaixaText + "  ";
+                    String envio = "v" + velocidade + "b" + brilho + "e" + efeitoTexto + "m" + textCaixaText.toUpperCase() + "  ";
                     //Toast.makeText(MainActivity.this, envio, Toast.LENGTH_LONG).show();
                     connectedThread.enviar(envio);
                    // Toast.makeText(MainActivity.this, colorr, Toast.LENGTH_SHORT).show();
@@ -167,6 +167,7 @@ public class MainActivity extends AppCompatActivity {
                         //Toast.makeText(getApplicationContext(), "imagem 1", Toast.LENGTH_SHORT).show();
                         alerta.dismiss();
                         efeitoSelecionado = "000";
+                        efeitoTexto = 3;
                         //setColorPicker(toolbar, fab);
                         setBrilhoVelocidade();
                     }
@@ -178,6 +179,7 @@ public class MainActivity extends AppCompatActivity {
                         //Toast.makeText(getApplicationContext(), "imagem 2", Toast.LENGTH_SHORT).show();
                         alerta.dismiss();
                         efeitoSelecionado = "001";
+                        efeitoTexto = 4;
                         setBrilhoVelocidade();
                     }
                 });
@@ -188,6 +190,7 @@ public class MainActivity extends AppCompatActivity {
                         //Toast.makeText(getApplicationContext(), "imagem 3", Toast.LENGTH_SHORT).show();
                         alerta.dismiss();
                         efeitoSelecionado = "002";
+                        efeitoTexto = 5;
                         setBrilhoVelocidade();
                     }
                 });
@@ -198,6 +201,7 @@ public class MainActivity extends AppCompatActivity {
                         // Toast.makeText(getApplicationContext(), "imagem 4", Toast.LENGTH_SHORT).show();
                         alerta.dismiss();
                         efeitoSelecionado = "003";
+                        efeitoTexto = 6;
                         setBrilhoVelocidade();
                     }
                 });
@@ -208,6 +212,7 @@ public class MainActivity extends AppCompatActivity {
                         //Toast.makeText(getApplicationContext(), "imagem 5", Toast.LENGTH_SHORT).show();
                         alerta.dismiss();
                         efeitoSelecionado = "004";
+                        efeitoTexto = 7;
                         setBrilhoVelocidade();
                     }
                 });
@@ -218,6 +223,7 @@ public class MainActivity extends AppCompatActivity {
                         //Toast.makeText(getApplicationContext(), "imagem 5", Toast.LENGTH_SHORT).show();
                         alerta.dismiss();
                         efeitoSelecionado = "005";
+                        efeitoTexto = 8;
                         setBrilhoVelocidade();
                     }
                 });
@@ -228,6 +234,7 @@ public class MainActivity extends AppCompatActivity {
                         //Toast.makeText(getApplicationContext(), "imagem 5", Toast.LENGTH_SHORT).show();
                         alerta.dismiss();
                         efeitoSelecionado = "006";
+                        efeitoTexto = 9;
                         setBrilhoVelocidade();
                     }
                 });
@@ -238,6 +245,7 @@ public class MainActivity extends AppCompatActivity {
                         //Toast.makeText(getApplicationContext(), "imagem 5", Toast.LENGTH_SHORT).show();
                         alerta.dismiss();
                         efeitoSelecionado = "007";
+                        efeitoTexto = 10;
                         setBrilhoVelocidade();
                     }
                 });
@@ -248,6 +256,7 @@ public class MainActivity extends AppCompatActivity {
                         //Toast.makeText(getApplicationContext(), "imagem 5", Toast.LENGTH_SHORT).show();
                         alerta.dismiss();
                         efeitoSelecionado = "008";
+                        efeitoTexto = 11;
                         setBrilhoVelocidade();
                     }
                 });

@@ -25,7 +25,7 @@
         jumboMode="true"
         optimize="true"
         revision="25.0.1"
-        sha1="773875f5823b905db016000730fa1ddb65f49e5b">
+        sha1="4dff590db069a145dc1581848c2c2ee69b783077">
         <dex dex="C:\Users\dayvi\AndroidStudioProjects\Night-Star-Lumin\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run_d5390f3e11e6ae766520459c242a94a5d5e6c160\classes.dex" />
     </item>
     <item
@@ -79,7 +79,7 @@
         jumboMode="true"
         optimize="true"
         revision="25.0.1"
-        sha1="b045bcae7b006fbbb81ea5498589befebb36bd5f">
+        sha1="9080f46b9f0e07979065c49825a05a7b92fa7c25">
         <dex dex="C:\Users\dayvi\AndroidStudioProjects\Night-Star-Lumin\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_99587a8e1f1eb1278f7091975a1e36e123fb963a\classes.dex" />
     </item>
     <item
